@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>ColorPicker</title>
+
+
+
+    <style>
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.color{
+    background: rgb(226,226,226);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#color1{
+    width: 20rem;
+    height: 2rem;
+    border-radius: 1rem;
+    padding: 20px 30px;
+    font-size: 1.5rem;
+    border: 2px solid rgba(192, 19, 19,0.7);
+    outline: none;
+}
+h2{
+    top: 0;
+    position: absolute;
+    margin-top: 40px;
+    color: rgb(0,0,0,0.7);
+}
+
+
+    </style>
+
+</head>
+<body>
+    <div class="color" id="color">
+        <div><h2>Make a hexaColor Code</h2></div>
+        <div>
+            <input type="text" placeholder="Enter hexaCode" id="color1">
+        </div>
+    </div>
+
+
+
+    <!-- javascript -->
+
+    <script>
+        const colorInput = document.getElementById('color')
+        colorInput.addEventListener('input', event=>{
+            const color= event.target.value
+            const hexaColor = /^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/
+
+            if( color.match(hexaColor)){
+                colorInput.style.backgroundColor = color
+            }else
+            {
+                colorInput.style.backgroundColor='rgb(226,226,226)'
+            }
+        })
+    </script>
+
+</body>
+</html>
